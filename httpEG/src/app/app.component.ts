@@ -1,6 +1,7 @@
 import { ArticlesEnvelope, Article } from './article';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { ArticlesService } from './articles.service';
 
 
 
@@ -13,20 +14,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'httpEG';
   public art: Article[];
-  
-  /**
-   *
-   */
-  constructor(private httpClient: HttpClient) {
-   this.httpClient = httpClient; 
-      
+
+  public articlesService: ArticlesService;
+  constructor(articlesService:ArticlesService) {
+    this.articlesService = articlesService
   }
 
-  login(){
-    let request = this.httpClient.get<ArticlesEnvelope>( "https://swindev.me/articles");
-    request.subscribe((response) => {
-      console.log(response);
-      this.art = response.articles;
-    })
-  }
+  
+
+ 
+
+
 }
