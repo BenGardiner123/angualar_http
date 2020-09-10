@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "httpEG"
+    }
+  },
+  "defaultProject": "httpEG",
+  "cli": {
+    "analytics": false
+  }
 }
