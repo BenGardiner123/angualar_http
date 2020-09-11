@@ -32,6 +32,8 @@ export class ArticlesService {
     });
   }
 
+  
+//  not even close brutha... check swagger docs and angualr httpClient docs 1st
   post(newart: HTMLInputElement){
     let request = this.httpClient.post<ArticlesEnvelope>( "https://swindev.me/articles", {});
     this.loading = true;
