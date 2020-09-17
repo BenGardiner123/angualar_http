@@ -1,21 +1,20 @@
 <h1>This is the house of JSON</h1>
 
-<button (click)="articlesService.get()">Get</button>
+<button (click)="articlesService.get()">Get All Posts</button>
 
-<input (click)="articlesService.post(newart)" #newart type="text" placeholder="enter the title of new article here">
+<button (click)="createArticle()">Create Post</button>
+
+<button (click)="createUser()">Create Post</button>
 
 <div *ngIf="articlesService.loading">Loading.....</div>
 
-<ul *ngIf="articlesService.loaded">
-    <li *ngFor="let acrt of articlesService.articles"></li>
-</ul>
 
 <ul *ngIf="articlesService.loaded">
     <li *ngFor="let acrt of articlesService.articles">
         <small>Article ID: {{acrt.articleId}}</small>
         <h6>Article title: {{ acrt.title }}</h6>
         <h6>Article description: {{ acrt.description}}</h6>
-        
+        <h6>Article body: {{ acrt.body}}</h6>
     </li>
 
 </ul>

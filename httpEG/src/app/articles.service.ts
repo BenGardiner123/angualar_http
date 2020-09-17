@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Article, ArticlesEnvelope } from './article';
+import { Article, ArticleEnvelope, ArticlesEnvelope, CreateAnonymousCommand} from './article';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -34,17 +34,25 @@ export class ArticlesService {
 
   
 //  not even close brutha... check swagger docs and angualr httpClient docs 1st
-  post(newart: HTMLInputElement){
-    let request = this.httpClient.post<ArticlesEnvelope>( "https://swindev.me/articles", {});
-    this.loading = true;
-    this.loaded = false;
+  createAnonPost(username: string, article: Article, ){
+    let request = this.httpClient.post<ArticleEnvelope>("https://swindev.me/articles/anonymous",{
+    username: username,
+    article: article
+    } as CreateAnonymousCommand);
+
+    
     request.subscribe((response) => {
-      this.articles = response.articles;
+      // shorthand for creating a new array - pushing all the old articles into it and adding the new article
+      this.articles = [...this.articles, response.article];
 
       this.loading = false;
       this.loaded = true;
+      this.get();
     });
+
   }
 
-}
+ 
 
+
+}

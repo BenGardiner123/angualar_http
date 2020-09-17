@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { ArticlesEnvelope, Article } from './article';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -16,12 +17,25 @@ export class AppComponent {
   public art: Article[];
 
   public articlesService: ArticlesService;
-  constructor(articlesService:ArticlesService) {
+  public userService: UserService;
+  
+  constructor(articlesService:ArticlesService, userService: UserService) {
     this.articlesService = articlesService
+    this.userService = userService;
   }
 
+  createArticle(){
+    this.articlesService.createAnonPost("Heckor_Ma-Lec", {
+      title: "One weird trick so that Angualr Devs hate him",
+      description:"click to find out more",
+      body: "https://memegenerator.net/img/instances/63094889.jpg"
+    })
+  }
   
 
+  createUser(){
+    
+  }
  
 
 
