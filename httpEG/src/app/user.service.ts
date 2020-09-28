@@ -8,8 +8,6 @@ import { Token } from '@angular/compiler/src/ml_parser/lexer';
   providedIn: 'root'
 })
 export class UserService {
-
-
   loading: boolean = false;
   loaded: boolean = false;
   token: Token;
@@ -21,21 +19,16 @@ export class UserService {
   users: User[];
 
 
-  createUser(username: string, email: string, password: string){
-    let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users",
-    {
-      user: {
-        username: username, 
-        email: email, 
-        password: password
-      }
-
-    } as CreateNewUser);
+  makeUser(username: string, email: string, password: string){
+    let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users", {
+      username: username, 
+      email: email,
+      password: password
+    });
 
     request.subscribe((response) => {
-      // shorthand for creating a new array - pushing all the old articles into it and adding the new article
-      
-      
+     
+  
       
     });
   }

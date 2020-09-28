@@ -1,10 +1,15 @@
 <h1>This is the house of JSON</h1>
+<button (click)="createUser(username, email, password)">Create User</button>
+<input type="text" placeholder="username" #username>
+<input type="text" placeholder="email" #email>
+<input type="text" placeholder="password" #password>
 
+<div class="buttonHoder">
 <button (click)="articlesService.get()">Get All Posts</button>
 
 <button (click)="createArticle()">Create Post</button>
+</div>
 
-<button (click)="createUser()">Create Post</button>
 
 <div *ngIf="articlesService.loading">Loading.....</div>
 
@@ -18,4 +23,5 @@
     </li>
 
 </ul>
+
 

@@ -33,9 +33,10 @@ export class AppComponent {
   }
   
 
-  createUser(){
-    
+  createUser(username: string, password: string, email: string){
+    this.userService.makeUser(username, email, password);
   }
+  
  
 
 
