@@ -1,20 +1,20 @@
 
 
 export interface User {
-    user:
-    {
-        username: string,
-        email: string,
-        password: string
-    } 
-    
+    username: string,
+    email: string,
+    password: string
 }
 
 export interface UserEnvelope{
-    user: User[];
+    user: User;
+    listOfUsers: User[];
 }
 
 export interface CreateNewUser {
-    user: User[];
-   
+    user: User;
+}
+
+export interface LoginUser{
+    user: User;
 }

@@ -5,13 +5,12 @@ import { Component } from '@angular/core';
 import { ArticlesService } from './articles.service';
 
 
-
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'httpEG';
   public art: Article[];
@@ -24,6 +23,7 @@ export class AppComponent {
     this.userService = userService;
   }
 
+
   createArticle(){
     this.articlesService.createAnonPost("Heckor_Ma-Lec", {
       title: "One weird trick so that Angualr Devs hate him",
@@ -33,10 +33,21 @@ export class AppComponent {
   }
   
 
-  createUser(username: string, password: string, email: string){
-    this.userService.makeUser(username, email, password);
+ createUser(){
+    this.userService.makeUser({
+      username:"Carlos Fonseca",
+      email: "revolutionaryLeaders@SandinistaRevolution.com",
+      password: "password123456789"
+    })
   }
-  
+   
+  loginUser(){
+    this.userService.userLogin({
+      username:"Carlos Fonseca",
+      email:"revolutionaryLeaders@SandinistaRevolution.com", 
+      password:"password123456789"
+    })
+  }
  
 
 

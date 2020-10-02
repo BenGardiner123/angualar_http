@@ -1,8 +1,11 @@
 <h1>This is the house of JSON</h1>
-<button (click)="createUser(username, email, password)">Create User</button>
-<input type="text" placeholder="username" #username>
+<button (click)="createUser()">Create User</button>
+<button (click)="loginUser()">Login user</button>
+<!-- <input type="text" placeholder="username" #username>
 <input type="text" placeholder="email" #email>
-<input type="text" placeholder="password" #password>
+<input type="text" placeholder="password" #password> -->
+
+
 
 <div class="buttonHoder">
 <button (click)="articlesService.get()">Get All Posts</button>
@@ -20,6 +23,19 @@
         <h6>Article title: {{ acrt.title }}</h6>
         <h6>Article description: {{ acrt.description}}</h6>
         <h6>Article body: {{ acrt.body}}</h6>
+    </li>
+
+</ul>
+
+<div *ngIf="userService.loading">Loading.....</div>
+
+
+<ul *ngIf="userService.loaded">
+    <li *ngFor="let singleUser of userService.listOfUsers">
+        <small>List of users</small>
+        <h6>User Email: {{singleUser.email}}</h6>
+        <h6>User Username: {{ singleUser.username}}</h6>
+        <h6>User password: {{ singleUser.password}}</h6>
     </li>
 
 </ul>
