@@ -18,3 +18,7 @@ export interface CreateNewUser {
 export interface LoginUser{
     user: User;
 }
+
+export interface getUser{
+    user: User;
+}
