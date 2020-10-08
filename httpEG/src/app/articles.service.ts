@@ -12,6 +12,7 @@ export class ArticlesService {
   public articles: Article[] = [];
   loading: boolean = false;
   loaded: boolean = false;
+  ID:number;
 
   constructor(private httpClient: HttpClient) {
     this.httpClient = httpClient; 
@@ -37,11 +38,14 @@ export class ArticlesService {
     let request = this.httpClient.get<ArticlesEnvelope>( "https://swindev.me/articles");
     this.loading = true;
     this.loaded = false;
+
     request.subscribe((response) => {
+      this.ID = id;
       this.articles = response.articles;
 
       this.loading = false;
       this.loaded = true;
+      
     });
   }
 
