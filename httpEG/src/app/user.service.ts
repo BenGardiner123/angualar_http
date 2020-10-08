@@ -29,17 +29,19 @@ export class UserService {
           email: email,
           password: password
         }
-      }
-    } as UserLoginCommand
+      } as UserLoginCommand
     );
     
     request.subscribe((response) => { console.log(response) },
     (error) => {
-      console.log("Error from swindev.swagger", error);
+      if(error.status == 401){
+          alert("Login failed due to inccorect email or wrong password")
+      }
     }
-    
-    );
-  }
+  );
+
+
+
 
   makeUser(user:User){
     let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users", {
@@ -52,5 +54,7 @@ export class UserService {
   }
 
 
+
+}
 
 }
