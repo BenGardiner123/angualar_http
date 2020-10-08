@@ -1,8 +1,7 @@
 import { getTestBed } from '@angular/core/testing';
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CreateNewUser, User, UserEnvelope, UserLoginCommand } from './user';
+import { User, UserCreateCommand, UserEnvelope, UserLoginCommand } from './user';
 import { Token } from '@angular/compiler/src/ml_parser/lexer';
 import { EmailValidator } from '@angular/forms';
 
@@ -40,21 +39,25 @@ export class UserService {
     }
   );
 
-
-
-
-  makeUser(user:User){
-    let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users", {
-     user: user
-    } as CreateNewUser);
-
-    request.subscribe(
-      (response) => console.log(response)
-    );
   }
 
-
-
+  postUser(username: string, email: string, password: string){
+    let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users",
+    {
+      user: {
+        username: username,
+        email: email,
+        password: password
+      }
+    } as UserCreateCommand
+  );
+  
+  request.subscribe((response) => { console.log(response) },
+  (error) => {
+    if(error.status == 401){
+        alert("Login failed due to inccorect email or wrong password")
+    }
+  }
+);
 }
-
 }

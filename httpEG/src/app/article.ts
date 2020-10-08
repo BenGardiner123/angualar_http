@@ -14,10 +14,9 @@ export interface CreateAnonymousCommand{
 }
 
 export interface Article {
-    articleId?: number| null;
+    articleId?: number | null;
     title: string;
     description: string;
     body: string; 
-
 }
 

@@ -11,8 +11,14 @@ export interface UserEnvelope{
     listOfUsers: User[];
 }
 
-export interface CreateNewUser {
-    user: User;
+export interface UserCreateCommand {
+    user: UserCreateUserData;
+}
+
+export interface UserCreateUserData {
+    username: string;
+    email:string;
+    password:string;
 }
 
 export interface UserLoginCommand{
@@ -24,6 +30,3 @@ export interface UserLoginUserData {
     password:string;
 }
 
-export interface getUser{
-    user: User;
-}

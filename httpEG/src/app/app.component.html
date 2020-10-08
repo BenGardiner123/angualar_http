@@ -1,43 +1,6 @@
 <h1>This is the house of JSON</h1>
 <app-users></app-users>
-
-
-
-<div class="buttonHoder">
-<button (click)="articlesService.get()">Get All Posts</button>
-
-<button (click)="createArticle()">Create Post</button>
-<input type="text" placeholder="username" #articleUsername>
-<input type="text" placeholder="title" #title>
-<input type="text" placeholder="description" #description> 
-<input type="text" placeholder="body" #body> 
-</div>
-
-
-<div *ngIf="articlesService.loading">Loading.....</div>
-
-
-<ul *ngIf="articlesService.loaded">
-    <li *ngFor="let acrt of articlesService.articles">
-        <small>Article ID: {{acrt.articleId}}</small>
-        <h6>Article title: {{ acrt.title }}</h6>
-        <h6>Article description: {{ acrt.description}}</h6>
-        <h6>Article body: {{ acrt.body}}</h6>
-    </li>
-
-</ul>
-
-<div *ngIf="userService.loading">Loading.....</div>
-
-
-<ul *ngIf="userService.loaded">
-    <li *ngFor="let singleUser of userService.listOfUsers">
-        <small>List of users</small>
-        <h6>User Email: {{singleUser.email}}</h6>
-        <h6>User Username: {{ singleUser.username}}</h6>
-        <h6>User password: {{ singleUser.password}}</h6>
-    </li>
-
-</ul>
+<app-article-list></app-article-list>
+<app-article-details></app-article-details>
 
 

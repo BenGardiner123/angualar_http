@@ -24,27 +24,9 @@ export class AppComponent {
   }
 
 
-  createArticle(){
-    this.articlesService.createAnonPost("Heckor_Ma-Lec", {
-      title: "One weird trick so that Angualr Devs hate him",
-      description:"click to find out more",
-      body: "https://memegenerator.net/img/instances/63094889.jpg"
-    })
-  }
+ 
   
 
- createUser(string: username, ){
-    this.userService.makeUser(
-    }
-  }
-   
-  loginUser(){
-    this.userService.userLogin({
-      username:"Carlos Fonseca",
-      email:"revolutionaryLeaders@SandinistaRevolution.com", 
-      password:"password123456789"
-    })
-  }
  
 
 }
