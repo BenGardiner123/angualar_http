@@ -2,12 +2,14 @@ import { getTestBed } from '@angular/core/testing';
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CreateNewUser, LoginUser, User, UserEnvelope } from './user';
+import { CreateNewUser, User, UserEnvelope, UserLoginCommand } from './user';
 import { Token } from '@angular/compiler/src/ml_parser/lexer';
+import { EmailValidator } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   public users: User;
   public listOfUsers: User[];
@@ -20,12 +22,22 @@ export class UserService {
   }
 
 
-  userLogin(user: User){
-    let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users/login", {
-      user: user
-    } as LoginUser);
+  userLogin(email: string, password: string){
+    let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users/login", 
+      {
+        user: {
+          email: email,
+          password: password
+        }
+      }
+    } as UserLoginCommand
+    );
     
-    request.subscribe((response) => console.log(response)
+    request.subscribe((response) => { console.log(response) },
+    (error) => {
+      console.log("Error from swindev.swagger", error);
+    }
+    
     );
   }
 

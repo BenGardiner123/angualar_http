@@ -14,6 +14,9 @@ export class UsersComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
+  createUser(username: string, email: string, password: string){
+    this.userService.userLogin( email, password)
+
+  }
 }
 

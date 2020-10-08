@@ -1,9 +1,5 @@
 <h1>This is the house of JSON</h1>
-<button (click)="createUser()">Create User</button>
-<button (click)="loginUser()">Login user</button>
-<input type="text" placeholder="username" #username>
-<input type="text" placeholder="email" #email>
-<input type="text" placeholder="password" #password> 
+<app-users></app-users>
 
 
 
@@ -11,6 +7,10 @@
 <button (click)="articlesService.get()">Get All Posts</button>
 
 <button (click)="createArticle()">Create Post</button>
+<input type="text" placeholder="username" #articleUsername>
+<input type="text" placeholder="title" #title>
+<input type="text" placeholder="description" #description> 
+<input type="text" placeholder="body" #body> 
 </div>
 
 

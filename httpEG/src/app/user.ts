@@ -15,8 +15,13 @@ export interface CreateNewUser {
     user: User;
 }
 
-export interface LoginUser{
-    user: User;
+export interface UserLoginCommand{
+    user: UserLoginUserData;
+}
+
+export interface UserLoginUserData {
+    email:string;
+    password:string;
 }
 
 export interface getUser{

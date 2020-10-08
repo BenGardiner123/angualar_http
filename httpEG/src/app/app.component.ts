@@ -33,12 +33,9 @@ export class AppComponent {
   }
   
 
- createUser(){
-    this.userService.makeUser({
-      username:"Carlos Fonseca",
-      email: "revolutionaryLeaders@SandinistaRevolution.com",
-      password: "password123456789"
-    })
+ createUser(string: username, ){
+    this.userService.makeUser(
+    }
   }
    
   loginUser(){
