@@ -34,20 +34,6 @@ export class ArticlesService {
     });
   }
 
-  getSingleArticle(id:number){
-    let request = this.httpClient.get<ArticlesEnvelope>( "https://swindev.me/articles");
-    this.loading = true;
-    this.loaded = false;
-
-    request.subscribe((response) => {
-      this.ID = id;
-      this.articles = response.articles;
-
-      this.loading = false;
-      this.loaded = true;
-      
-    });
-  }
 
   
 //  not even close brutha... check swagger docs and angualr httpClient docs 1st

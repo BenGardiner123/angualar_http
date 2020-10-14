@@ -1,13 +1,9 @@
-<h1>Here is your get article by ID section</h1>
-<button (click)="articlesService.getSingleArticle(articleID.value)">Get Article by ID</button>
-<input type="text" placeholder="username" #articleID>
+ 
+    
+<li *ngFor="let acrt of articlesService.articles">
+    <small>Article ID: {{acrt.articleId}}</small>
+    <h6>Article title: {{ acrt.title }}</h6>
+    <h6>Article description: {{ acrt.description}}</h6>
+    <h6>Article body: {{ acrt.body}}</h6>
+</li>
 
-<ul *ngIf="articlesService.loaded">
-    <li *ngFor="let acrt of articlesService.articles">
-        <small>Article ID: {{acrt.articleId}}</small>
-        <h6>Article title: {{ acrt.title }}</h6>
-        <h6>Article description: {{ acrt.description}}</h6>
-        <h6>Article body: {{ acrt.body}}</h6>
-    </li>
-
-</ul>

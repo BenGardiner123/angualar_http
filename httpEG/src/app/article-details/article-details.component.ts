@@ -21,8 +21,8 @@ export class ArticleDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  showSingleArticle(id:number){
-    this.articlesService.getSingleArticle(id);
+  showSingleArticle(){
+    this.articlesService.get();
   }
 
 }

@@ -1,14 +1,14 @@
-<h1>Articles List component is working </h1>
+
 <div class="buttonHoder">
 
     <button (click)="articlesService.get()">Get All Posts</button>
-    
-    
     <button (click)="createArticle(articleUsername.value, title.value, description.value, body.value)">Create Post</button>
+
     <input type="text" placeholder="username" #articleUsername>
     <input type="text" placeholder="title" #title>
     <input type="text" placeholder="description" #description> 
     <input type="text" placeholder="body" #body> 
+    
 </div>
     
     
@@ -16,11 +16,5 @@
     
     
     <ul *ngIf="articlesService.loaded">
-        <li *ngFor="let acrt of articlesService.articles">
-            <small>Article ID: {{acrt.articleId}}</small>
-            <h6>Article title: {{ acrt.title }}</h6>
-            <h6>Article description: {{ acrt.description}}</h6>
-            <h6>Article body: {{ acrt.body}}</h6>
-        </li>
-    
+        <app-article-details ></app-article-details>
     </ul>

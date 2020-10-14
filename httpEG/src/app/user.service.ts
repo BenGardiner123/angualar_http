@@ -21,7 +21,7 @@ export class UserService {
   }
 
 
-  userLogin(email: string, password: string){
+  LoginUser(email: string, password: string){
     let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users/login", 
       {
         user: {
@@ -41,7 +41,7 @@ export class UserService {
 
   }
 
-  postUser(username: string, email: string, password: string){
+  registerUser(username: string, email: string, password: string){
     let request = this.httpClient.post<UserEnvelope>("https://swindev.me/users",
     {
       user: {

@@ -20,3 +20,9 @@ export interface Article {
     body: string; 
 }
 
+export class Article {
+    articleId?: number | null;
+    title: string;
+    description: string;
+    body: string; 
+}

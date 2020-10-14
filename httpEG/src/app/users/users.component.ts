@@ -15,12 +15,12 @@ export class UsersComponent implements OnInit {
   }
 
   createUser(username: string, email: string, password: string){
-    this.userService.postUser( username,email, password)
+    this.userService.registerUser( username,email, password)
 
   }
 
   loginUser(username: string, email: string, password: string){
-    this.userService.userLogin( email, password)
+    this.userService.LoginUser( email, password)
 
   }
 }
