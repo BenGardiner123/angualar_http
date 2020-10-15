@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Article } from '../article';
 import { ArticlesService } from '../articles.service';
 
@@ -9,7 +9,8 @@ import { ArticlesService } from '../articles.service';
 })
 export class ArticleDetailsComponent implements OnInit {
 
-  public art: Article[];
+  @Input()
+  article:Article;
 
   public articlesService: ArticlesService;
   

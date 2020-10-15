@@ -16,5 +16,5 @@
     
     
     <ul *ngIf="articlesService.loaded">
-        <app-article-details ></app-article-details>
+        <app-article-details *ngFor="let article of articlesService.articles" [article]="article" ></app-article-details>
     </ul>
